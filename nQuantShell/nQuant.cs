@@ -12,6 +12,7 @@ namespace nQuant
         private static int alphaTransparency = 10;
         private static int alphaFader = 70;
         private static string targetPath = string.Empty;
+        private static int colorCount = 256;
 
         public static void Main(string[] args)
         {
@@ -44,7 +45,7 @@ namespace nQuant
             {
                 try
                 {
-                    using(var quantized = quantizer.QuantizeImage(bitmap, alphaTransparency, alphaFader))
+                    using(var quantized = quantizer.QuantizeImage(bitmap, alphaTransparency, alphaFader, colorCount))
                     {
                         quantized.Save(targetPath, ImageFormat.Png);
                     }
@@ -96,6 +97,14 @@ namespace nQuant
                                 targetPath = args[index + 1];
                             break;
 
+                        case "C":
+                            if (index >= args.Length - 1 || !Int32.TryParse(args[index + 1], out colorCount) || colorCount < 2 || colorCount > 256)
+                            {
+                                PrintUsage();
+                                Environment.Exit(1);
+                            }
+                            break;
+
                         default:
                             PrintUsage();
                             Environment.Exit(1);
@@ -114,6 +123,7 @@ namespace nQuant
             Console.WriteLine("  /t : Alpha Thresholds - All colors with an Alpha value equal to or less than this integer will be considered fully transparent. The default is 10.");
             Console.WriteLine("  /f : Alpha Fader - Alpha values will be normalized to the nearest multiple of this value. The default is 70.");
             Console.WriteLine("  /o : Output image file path. The default is <source image path directory>\\<source image file name without extension>-quant.png");
+            Console.WriteLine("  /c : Color count. The default and maximum is 256; the minimum is 2.");
         }
 
     }

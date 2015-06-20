@@ -20,12 +20,23 @@ namespace nQuant
 
         public Image QuantizeImage(Bitmap image)
         {
-            return QuantizeImage(image, 10, 70);
+            return QuantizeImage(image, 10, 70, MaxColor);
         }
 
         public Image QuantizeImage(Bitmap image, int alphaThreshold, int alphaFader)
         {
-            var colorCount = MaxColor;
+            return QuantizeImage(image, alphaThreshold, alphaFader, MaxColor);
+        }
+
+        public Image QuantizeImage(Bitmap image, int alphaThreshold, int alphaFader, int colorCount)
+        {
+            return QuantizeImage(image, alphaThreshold, alphaFader, ref colorCount);
+        }
+
+        public Image QuantizeImage(Bitmap image, int alphaThreshold, int alphaFader, ref int colorCount)
+        {
+            if (colorCount < 2 || colorCount > MaxColor)
+                throw new ArgumentOutOfRangeException("colorCount");
             ImageBuffer buffer = new ImageBuffer(image);
             var moments = BuildHistogram(buffer, alphaThreshold, alphaFader);
             CalculateMoments(moments);

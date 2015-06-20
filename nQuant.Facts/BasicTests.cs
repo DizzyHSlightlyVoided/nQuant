@@ -22,10 +22,11 @@ namespace nQuant.Facts
             {
                 const int alphaTransparency = 0;
                 const int alphaFader = 0;
+                const int maxColors = 256;
                 var quantizer = new WuQuantizer ();
                 sw.Start ();
 
-                using (var quantized = quantizer.QuantizeImage (bitmap, alphaTransparency, alphaFader))
+                using (var quantized = quantizer.QuantizeImage (bitmap, alphaTransparency, alphaFader, maxColors))
                     quantized.Save (testFilePath, ImageFormat.Png);
             }
 
