@@ -1,11 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 
+#if WPF
+using Bitmap = System.Windows.Media.Imaging.BitmapSource;
+using Image = System.Windows.Media.Imaging.BitmapSource;
+
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+
+namespace nQuantWpf
+#else
+using System.Drawing;
+using System.Drawing.Imaging;
 namespace nQuant
+#endif
 {
     public abstract class WuQuantizerBase
     {

@@ -1,4 +1,8 @@
+#if WPF
+namespace nQuantWpf
+#else
 namespace nQuant
+#endif
 {
     public struct Box
     {

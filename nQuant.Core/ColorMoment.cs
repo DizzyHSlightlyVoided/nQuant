@@ -1,6 +1,9 @@
 ﻿//using System.Runtime.CompilerServices;
-
+#if WPF
+namespace nQuantWpf
+#else
 namespace nQuant
+#endif
 {
     struct ColorMoment
     {

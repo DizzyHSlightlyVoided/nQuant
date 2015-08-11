@@ -1,5 +1,9 @@
 using System.Runtime.InteropServices;
+#if WPF
+namespace nQuantWpf
+#else
 namespace nQuant
+#endif
 {
     [StructLayout(LayoutKind.Explicit)]
     public struct Pixel

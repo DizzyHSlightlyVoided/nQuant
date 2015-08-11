@@ -1,6 +1,10 @@
-﻿using System.Drawing;
-
+﻿#if WPF
+using System.Windows.Media;
+namespace nQuantWpf
+#else
+using System.Drawing;
 namespace nQuant
+#endif
 {
     struct PaletteColorHistory
     {
@@ -12,7 +16,12 @@ namespace nQuant
 
         public Color ToNormalizedColor()
         {
-            return (Sum != 0) ? Color.FromArgb((int)(Alpha /= Sum), (int)(Red /= Sum), (int)(Green /= Sum), (int)(Blue /= Sum)) : Color.Empty;
+            return (Sum != 0) ? Color.FromArgb((byte)(Alpha /= Sum), (byte)(Red /= Sum), (byte)(Green /= Sum), (byte)(Blue /= Sum)) :
+#if WPF
+                new Color();
+#else
+                Color.Empty;
+#endif
         }
 
         public void AddPixel(Pixel pixel)

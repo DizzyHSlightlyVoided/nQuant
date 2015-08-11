@@ -1,11 +1,18 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
+#if WPF
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+
+namespace nQuantWpf
+#else
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace nQuant
+#endif
 {
     public class nQuant
     {
@@ -41,14 +48,27 @@ namespace nQuant
 
             Stopwatch stopwatch = Stopwatch.StartNew();
             var quantizer = new WuQuantizer();
+#if WPF
+            {
+                BitmapSource bitmap = BitmapFrame.Create(new Uri(sourcePath));
+#else
             using(var bitmap = new Bitmap(sourcePath))
             {
+#endif
                 try
                 {
-                    using(var quantized = quantizer.QuantizeImage(bitmap, alphaTransparency, alphaFader, colorCount))
+#if WPF
+                    var quantized = quantizer.QuantizeImage(bitmap, alphaTransparency, alphaFader, colorCount);
+                    var encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(quantized));
+                    using (FileStream fs = File.Create(targetPath))
+                        encoder.Save(fs);
+#else
+                    using (var quantized = quantizer.QuantizeImage(bitmap, alphaTransparency, alphaFader, colorCount))
                     {
                         quantized.Save(targetPath, ImageFormat.Png);
                     }
+#endif
                 }
                 catch (QuantizationException q)
                 {

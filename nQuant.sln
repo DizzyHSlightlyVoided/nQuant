@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nQuant.Core", "nQuant.Core\nQuant.Core.csproj", "{A59307EA-FCB0-4110-BC42-0417871C24C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nQuant", "nQuantShell\nQuant.csproj", "{D502D741-603F-4566-A7ED-B8A624DD008F}"
@@ -22,6 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{07CD26
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nQuant.Facts", "nQuant.Facts\nQuant.Facts.csproj", "{1E75A3A3-ABED-4802-9113-DE9E51AD9B91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nQuantWpf.Core", "nQuant.Core\nQuantWpf.Core.csproj", "{21C7366E-EA88-4158-8544-0100DD3AB47D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nQuantWpf", "nQuantShell\nQuantWpf.csproj", "{17FF3A19-5A33-417C-A315-1DC43942BB99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,11 +87,40 @@ Global
 		{1E75A3A3-ABED-4802-9113-DE9E51AD9B91}.Release|x64.Build.0 = Release|x64
 		{1E75A3A3-ABED-4802-9113-DE9E51AD9B91}.Release|x86.ActiveCfg = Release|Any CPU
 		{1E75A3A3-ABED-4802-9113-DE9E51AD9B91}.Release|x86.Build.0 = Release|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Debug|x64.Build.0 = Debug|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Debug|x86.Build.0 = Debug|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Release|x64.ActiveCfg = Release|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Release|x64.Build.0 = Release|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Release|x86.ActiveCfg = Release|Any CPU
+		{21C7366E-EA88-4158-8544-0100DD3AB47D}.Release|x86.Build.0 = Release|Any CPU
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Debug|x64.ActiveCfg = Debug|x64
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Debug|x64.Build.0 = Debug|x64
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Debug|x86.ActiveCfg = Debug|x86
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Debug|x86.Build.0 = Debug|x86
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Release|Mixed Platforms.Build.0 = Release|x86
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Release|x64.ActiveCfg = Release|x64
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Release|x64.Build.0 = Release|x64
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Release|x86.ActiveCfg = Release|x86
+		{17FF3A19-5A33-417C-A315-1DC43942BB99}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
