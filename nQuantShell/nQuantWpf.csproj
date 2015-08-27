@@ -20,8 +20,9 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\WPF\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;WPF</DefineConstants>
+    <OutputPath>bin\WPF\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WPF</DefineConstants>
+    <IntermediateOutputPath>obj\WPF\x86\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -30,30 +31,42 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\WPF\Release\</OutputPath>
+    <OutputPath>bin\WPF\x86\Release\</OutputPath>
     <DefineConstants>TRACE;WPF</DefineConstants>
+    <IntermediateOutputPath>obj\WPF\x86\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
+    <OutputPath>bin\WPF\x64\Debug\</OutputPath>
+    <IntermediateOutputPath>obj\WPF\x64\Debug\</IntermediateOutputPath>
     <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
+    <OutputPath>bin\WPF\x64\Release\</OutputPath>
+    <IntermediateOutputPath>obj\WPF\x64\Release\</IntermediateOutputPath>
     <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
+    <OutputPath>bin\WPF\Debug\</OutputPath>
+    <IntermediateOutputPath>obj\WPF\Debug\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE;WPF</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
+    <OutputPath>bin\WPF\Release\</OutputPath>
+    <DefineConstants>TRACE;WPF</DefineConstants>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -69,9 +82,6 @@
   <ItemGroup>
     <Compile Include="nQuant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nQuant.Core\nQuantWpf.Core.csproj">
